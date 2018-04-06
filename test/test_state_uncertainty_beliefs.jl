@@ -21,11 +21,11 @@ ordered_states(BabyPOMDP) = [1,2]
 
 function transition(pomdp::BabyPOMDP, s::Int, a::Bool)
     if !a && s == 1 # did not feed when hungry
-        return DiscreteBelief(pomdp, [1.0,0.0])
+        return Categorical([1.0,0.0])
     elseif a # feed
-        return DiscreteBelief(pomdp, [0.0,1.0])
+        return Categorical([0.0,1.0])
     else # did not feed when not hungry
-        return DiscreteBelief(pomdp, [pomdp.p_become_hungry, 1-pomdp.p_become_hungry])
+        return Categorical([pomdp.p_become_hungry, 1-pomdp.p_become_hungry])
     end
 end
 

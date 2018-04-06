@@ -2,6 +2,9 @@ using Base.Test
 using Distributions
 using Compat
 
+import Distributions: pdf
+import Base: rand
+
 # the -f option will cause fatal errors to error out runtests
 fatalerrors = length(ARGS) > 0 && ARGS[1] == "-f"
 
