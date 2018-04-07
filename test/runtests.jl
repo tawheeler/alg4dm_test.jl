@@ -13,10 +13,6 @@ quiet = length(ARGS) > 0 && ARGS[1] == "-q"
 
 ################
 
-abstract type POMDP{S,A,O} end
-
-abstract type Updater end
-
 struct BoolDistribution
     p::Float64 # probability of true
 end
